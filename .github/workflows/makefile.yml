@@ -1,0 +1,30 @@
+# A simple action usage
+name: Build Kernel
+on:
+  workflow_dispatch:
+
+jobs:
+  Build-Kernel:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Build Kernel
+        uses: dabao1955/kernel_build_action@main
+        with:
+          kernel-url: https://github.com/xyz219186-ctrl/Realking_kernel_sm8250/
+          kernel-dir: msm-4.19
+          kernel-branch: main
+          config: alioth_defconfig
+          arch: arm64
+          aosp-gcc: true
+          aosp-clang: true
+          ksu-other: true
+          ksu-url: https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh
+          android-version: 12
+          aosp-clang-version: r383902
+          disable-lto: true
+          anykernel3: true
