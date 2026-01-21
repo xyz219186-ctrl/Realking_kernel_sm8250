@@ -20,10 +20,11 @@ jobs:
           kernel-branch: main
           config: alioth_defconfig
           arch: arm64
+          aosp-gcc: true
           aosp-clang: true
           ksu-other: true
           ksu-url: https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh
           android-version: 12
-          aosp-clang-version: r383902
+          aosp-clang-version: r584948
           disable-lto: true
           anykernel3: true
