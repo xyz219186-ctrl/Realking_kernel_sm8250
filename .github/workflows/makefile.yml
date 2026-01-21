@@ -24,6 +24,6 @@ jobs:
           ksu-other: true
           ksu-url: https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh
           android-version: 12
-          other-clang-url: https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android-arm64-deadpool-4.9-android13-tv.tar.gz
+          other-clang-url: https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android-msm-crosshatch-4.9-android12/clang-r416183b.tar.gz
           disable-lto: true
           anykernel3: true
