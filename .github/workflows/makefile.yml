@@ -69,19 +69,6 @@ jobs:
         key: clang-${{ env.clang }}-${{ hashFiles('**/clang.txt') }}
         restore-keys: |
           clang-${{ env.clang }}-
-          
-    - name: Clean up old KernelSU configurations
-      run: |
-        echo "=== Cleaning up old KernelSU configurations ==="
-        # Remove old KSU directories
-        rm -rf drivers/ksu
-        rm -rf drivers/kernelsu
-        # Clean build output
-        rm -rf out
-        # Reset repository to clean state
-        git reset --hard HEAD
-        git clean -xfd
-        echo "Cleanup completed"
 
     - name: Set up environment
       run: |
@@ -107,6 +94,15 @@ jobs:
         else
           echo "Using cached Clang toolchain"
         fi
+
+        # --- FIX START: 强制删除旧的驱动和 Makefile 引用 ---
+        echo "=== Removing legacy KSU drivers to prevent conflicts ==="
+        rm -rf drivers/ksu
+        # 从 drivers/Makefile 中删除包含 "ksu/" 的行，防止重复定义
+        if [ -f "drivers/Makefile" ]; then
+            sed -i "/ksu\//d" drivers/Makefile
+        fi
+        # --- FIX END ---
         
         # Setup SukiSU Ultra with builtin branch
         echo "=== Setting up SukiSU Ultra (builtin branch) ==="
