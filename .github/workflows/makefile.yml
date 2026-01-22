@@ -96,9 +96,7 @@ jobs:
         curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/main/kernel/setup.sh" | bash -s nongki
         cd KernelSU
         # Patch susfs
-        curl -Ls https://raw.githubusercontent.com/KOWX712/files/main/0001-sukisu-susfs-v1.5.7.patch | patch -p1
-        # Add other ksu manager support
-        curl -Ls https://raw.githubusercontent.com/KOWX712/files/main/0001-add-other-ksu-manager-support-for-sukisu-ultra-nongk.patch | patch -p1
+        curl -Ls https://raw.githubusercontent.com/DrRoot85/sukisupatch/main/0001-sukisu-susfs-v1.5.7.patch | patch -p1
         cd ..
     - name: Build kernel
       run: |
