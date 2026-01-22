@@ -57,7 +57,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        ref: 'apolio_sukisu_susfs155'
+        ref: 'main'
         fetch-depth: 1
         submodules: 'recursive'
 
