@@ -93,11 +93,7 @@ jobs:
           echo "Using cached Clang toolchain"
         fi
         # Setup SukiSU Ultra
-        curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/main/kernel/setup.sh" | bash -s nongki
-        cd KernelSU
-        # Patch susfs
-        curl -Ls https://raw.githubusercontent.com/DrRoot85/sukisupatch/main/0001-sukisu-susfs-v1.5.7.patch | patch -p1
-        cd ..
+        curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/main/kernel/setup.sh" | bash -s builtin
     - name: Build kernel
       run: |
         # Set linker and path variables
